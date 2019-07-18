@@ -1,0 +1,30 @@
+{
+  "name": "jstestapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "sass:watch": "node-sass -w sass/main.scss public/style.css"
+  },
+  "author": "Hayden Bradfield",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-mysql-session": "^2.1.0",
+    "express-session": "^1.16.2",
+    "express-validator": "^6.1.1",
+    "mysql2": "^1.6.5",
+    "stripe": "^7.4.0",
+    "validator": "^11.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-loader": "^8.0.6",
+    "node-sass": "^4.12.0"
+  }
+}

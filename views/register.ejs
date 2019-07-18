@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta http-equiv="X-UA-COMPATIBLE" content="ie=edge"/>
+        <title>JavaScript Quizzes | <%= title %></title>
+        <link rel="stylesheet" type="text/css" href="/style.css" media="screen"/>
+        <script src="https://kit.fontawesome.com/4f18e4f9dd.js"></script>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav__part-one">
+                <div class="nav__logo-box">
+                    <a class="nav__logo">JavaScript Quizzes</a>
+                </div>
+                <i class="nav__togglecon fa fa-bars"></i>
+            </div>
+            <div class="nav__part-two">
+                <a class="nav__link">Login</a>
+                <a class="nav__link">Register</a>
+            </div>
+        </nav>
+        <main>
+            <div class="test-container">
+                <form class="register-form">
+                    <h1>Register</h1>
+                    <div class="fgrp">
+                        <label for="email" class="inputlabel">Email</label>
+                        <input id="email" name="email" type="email" class="text-input"/>
+                    </div>
+                    <div class="fgrp">
+                        <label for="pass" class="inputlabel">Create a Password</label>
+                        <input id="pass" name="pass" type="password" class="text-input"/>
+                    </div>
+                    <div class="fgrp">
+                        <label for="confirmpass" class="inputlabel">Confirm Password</label>
+                        <input id="confirmpass" name="confirmpass" type="password" class="text-input"/>
+                    </div>
+                    <button id="subbut" class="btn">Create Account</button>
+                </form>
+                <div class="errbox"></div>
+            </div>
+        </main>
+        <script src="/js/register.bundle.js"></script>
+    </body>
+</html>

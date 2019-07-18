@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta http-equiv="X-UA-COMPATIBLE" content="ie=edge"/>
+        <title>JavaScript Quizzes | <%= title %></title>
+        <link rel="stylesheet" type="text/css" href="/style.css" media="screen"/>
+        <script src="https://kit.fontawesome.com/4f18e4f9dd.js"></script>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav__part-one">
+                <div class="nav__logo-box">
+                    <a class="nav__logo">JavaScript Quizzes</a>
+                </div>
+                <i class="nav__togglecon fa fa-bars"></i>
+            </div>
+            <div class="nav__part-two">
+                <a class="nav__link">Login</a>
+                <a class="nav__link">Register</a>
+            </div>
+        </nav>
+        <main>
+            <div class="test-container">
+                <h1><%= testName %></h1>
+                <form id="testform" method="POST" action="/test">
+                <div class="test-items">
+                    <% for(let item of questions){ %>
+                        <div class="item">
+                            <h2 class="item__questionno">Question <%= item.num %></h2>
+                            <div class="item__question"><%- item.content %></div>
+                            <fieldset class="item__optgroup">
+                                <div class="item__option">
+                                    <input type="radio" name="<%= item.num %>" value="<%= item.options[0].number %>">
+                                    <div class="item__option-content"> <%- item.options[0].choiceContent %> </div>
+                                </div> 
+                                <div class="item__option">
+                                    <input type="radio" name="<%= item.num %>" value="<%= item.options[1].number %>">
+                                    <div class="item__option-content"> <%- item.options[1].choiceContent %> </div>
+                                </div> 
+                                <div class="item__option">
+                                    <input type="radio" name="<%= item.num %>" value="<%= item.options[2].number %>">
+                                    <div class="item__option-content"> <%- item.options[2].choiceContent %> </div>
+                                </div> 
+                                <div class="item__option">
+                                    <input type="radio" name="<%= item.num %>" value="<%= item.options[3].number %>">
+                                    <div class="item__option-content"> <%- item.options[3].choiceContent %> </div>
+                                </div> 
+                                <div class="item__option">
+                                    <input type="radio" name="<%= item.num %>" value="<%= item.options[4].number %>">
+                                    <div class="item__option-content"> <%- item.options[4].choiceContent %> </div>
+                                </div> 
+                            </fieldset>
+                        </div>
+                    <% } %>
+
+                </div>
+                <input type="hidden" name="testnumber" value="<%= testId %>%>"/>
+                <button type="submit" id="subbut" name="subbut">Submit</button>
+                </form>
+            </div>
+        </main>
+        <script>
+            const questionsLen = <%= questions.length %>;
+
+            document.querySelector('#subbut').addEventListener('click',e=>{
+                e.preventDefault();
+
+                let errs = 0;
+
+
+                function checkIfNotAnswered(fields){
+
+                    for(let field of fields){
+
+                        if(field.checked){
+                            return true;
+                        }
+
+                    }
+
+                    return false;
+
+
+
+                }
+
+                for(let i = 1; i <= questionsLen; i++){
+
+                    let fields = document.getElementsByName(`${i}`);
+
+                    !checkIfNotAnswered(fields) ? errs++ : null;
+
+                }
+
+
+
+                if(errs){
+                    alert('Please answer all questions before submitting.');
+                    console.log(errs);
+                    
+                }else{
+
+                    document.querySelector('#testform').submit();
+
+                }
+            });
+        </script>
+    </body>
+</html>
