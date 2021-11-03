@@ -19,7 +19,7 @@
     "express-validator": "^6.1.1",
     "mysql2": "^1.6.5",
     "stripe": "^7.4.0",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
